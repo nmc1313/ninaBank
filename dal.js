@@ -4,6 +4,9 @@ let db            = null;
  
 // connect to mongo
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
+    if (err) {
+        console.log(err);
+    }
     console.log("Connected successfully to db server");
 
     // connect to myproject database
@@ -69,7 +72,7 @@ function all(){
             .collection('users')
             .find({})
             .toArray(function(err, docs) {
-                err ? reject(err) : resolve(docs);
+          add error      err ? reject(err) : resolve(docs);
         });    
     })
 }
