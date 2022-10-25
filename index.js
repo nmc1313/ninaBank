@@ -8,6 +8,11 @@ const e = require('express');
 app.use(express.static('public'));
 app.use(cors());
 
+app.use(express.static((__dirname+'/src')));
+app.get('/', function (req, res){
+    res.sendFile(__dirname+"/public/index.html")
+})
+
 // create user account
 app.get('/account/create/:name/:email/:password', function (req, res) {
 
